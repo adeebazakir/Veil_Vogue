@@ -1,0 +1,407 @@
+/* Global Button Styles - Modern & Consistent */
+
+/* Base Button Styles */
+button, .btn {
+    font-family: inherit;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover, .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active, .btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:disabled, .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Primary Button - Purple/Brand Color */
+.btn-primary, button[type="submit"]:not(.btn-secondary):not(.btn-danger) {
+    background: linear-gradient(135deg, #B799FF 0%, #A080E0 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #A080E0 0%, #8C6BC8 100%);
+}
+
+/* Secondary Button - Outlined */
+.btn-secondary {
+    background: transparent;
+    color: #B799FF;
+    border: 2px solid #B799FF;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+.btn-secondary:hover {
+    background: #B799FF;
+    color: white;
+}
+
+/* Success Button - Green */
+.btn-success {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+/* Danger Button - Red */
+.btn-danger {
+    background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+}
+
+/* Warning Button - Yellow */
+.btn-warning {
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+.btn-warning:hover {
+    background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+}
+
+/* Info Button - Blue */
+.btn-info {
+    background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+.btn-info:hover {
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+}
+
+/* Small Button */
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    border-radius: 0.5rem;
+}
+
+/* Large Button */
+.btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    border-radius: 1rem;
+}
+
+/* Full Width Button */
+.btn-block {
+    width: 100%;
+}
+
+/* Icon Button */
+.btn-icon {
+    padding: 0.75rem;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+/* Rounded Button */
+.btn-rounded {
+    border-radius: 9999px;
+}
+
+/* Navbar Login Button */
+.nav-login-cart button {
+    background: linear-gradient(135deg, #B799FF 0%, #A080E0 100%);
+    color: white;
+    padding: 0.65rem 1.5rem;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(183, 153, 255, 0.3);
+}
+
+.nav-login-cart button:hover {
+    background: linear-gradient(135deg, #A080E0 0%, #8C6BC8 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(183, 153, 255, 0.4);
+}
+
+/* Cart Icon Button */
+.cart-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.cart-link:hover {
+    transform: scale(1.1);
+}
+
+/* Filter/Action Buttons */
+.filter-button, .category-button {
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid #E5E7EB;
+    background: white;
+    color: #374151;
+}
+
+.filter-button:hover, .category-button:hover {
+    border-color: #B799FF;
+    color: #B799FF;
+    transform: translateY(-2px);
+}
+
+.filter-button.active, .category-button.active {
+    background: linear-gradient(135deg, #B799FF 0%, #A080E0 100%);
+    color: white;
+    border-color: #B799FF;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+    background: linear-gradient(135deg, #B799FF 0%, #A080E0 100%);
+    color: white;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 1rem;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(183, 153, 255, 0.3);
+}
+
+.add-to-cart-btn:hover {
+    background: linear-gradient(135deg, #A080E0 0%, #8C6BC8 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(183, 153, 255, 0.4);
+}
+
+.add-to-cart-btn:active {
+    transform: translateY(-1px);
+}
+
+/* View Details Button */
+.view-details-btn {
+    background: transparent;
+    color: #B799FF;
+    border: 2px solid #B799FF;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-details-btn:hover {
+    background: #B799FF;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Quantity Control Buttons */
+.quantity-btn {
+    background: #F3F4F6;
+    color: #374151;
+    border: 2px solid #E5E7EB;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-btn:hover:not(:disabled) {
+    background: #B799FF;
+    color: white;
+    border-color: #B799FF;
+    transform: scale(1.1);
+}
+
+.quantity-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Remove/Delete Button */
+.remove-btn, .delete-btn {
+    background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.remove-btn:hover, .delete-btn:hover {
+    background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+    transform: scale(1.05);
+}
+
+/* Checkout/Proceed Button */
+.checkout-btn, .proceed-btn {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
+}
+
+.checkout-btn:hover, .proceed-btn:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(16, 185, 129, 0.4);
+}
+
+/* Admin/Seller Dashboard Buttons */
+.admin-btn, .seller-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Verify Button */
+.verify-btn {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: white;
+}
+
+.verify-btn:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+/* Unverify Button */
+.unverify-btn {
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    color: white;
+}
+
+.unverify-btn:hover {
+    background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+}
+
+/* Edit Button */
+.edit-btn {
+    background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+    color: white;
+}
+
+.edit-btn:hover {
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+}
+
+/* Refresh Button */
+.refresh-btn {
+    background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.refresh-btn:hover {
+    background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+    transform: translateY(-2px);
+}
+
+/* Loading State */
+button.loading, .btn.loading {
+    position: relative;
+    color: transparent;
+    pointer-events: none;
+}
+
+button.loading::after, .btn.loading::after {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: 50%;
+    left: 50%;
+    margin-left: -0.5rem;
+    margin-top: -0.5rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: button-loading-spinner 0.6s linear infinite;
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .btn-lg {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .checkout-btn, .proceed-btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+

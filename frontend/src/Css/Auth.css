@@ -1,0 +1,72 @@
+/* Combined auth + navbar styles based on user's reference */
+.loginsignup{
+    width: 100%;
+    min-height: 100vh;
+    background: #fce3fe ;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 60px 16px;
+}
+.loginsignup-container{
+    width: 580px;
+    background: #fff;
+    border-radius: 12px;
+    height: auto;
+    margin: auto;
+    padding: 40px 60px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+.loginsignup-container h1 {
+    margin: 6px 0 18px 0;
+    color: #333;
+    font-size: 32px;
+    text-align: center;
+}
+.loginsignup-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 10px;
+}
+.loginsignup-fields input, .loginsignup-fields select {
+    height: 56px;
+    width: 100%;
+    padding: 0 18px;
+    border: 1px solid #ddd;
+    outline: none;
+    color: #333;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: border-color 0.2s ease;
+}
+.loginsignup-fields input:focus, .loginsignup-fields select:focus { border-color: #ff4141 }
+.loginsignup-container button {
+    width: 100%;
+    height: 56px;
+    color: white;
+    background: #ff4141;
+    margin-top: 20px;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+.loginsignup-container button:hover { background: #e03939 }
+.loginsignup-login { margin-top: 18px; color: #555; font-size: 15px; text-align:center }
+.loginsignup-login span { color: #ff4141; font-weight:600 }
+.loginsignup-agree{ display:flex; gap:12px; align-items:center; margin-top:12px; color:#666 }
+
+/* Navbar styles included as reference (if you want to use global navbar) */
+.navbar { position: fixed; top: 0; left: 0; width: 100%; display:flex; justify-content:space-around; padding:16px; box-shadow:0 1px 3px -2px black; background-color:white; z-index:1000 }
+.nav-logo{ display:flex; align-items:center; gap:10px }
+.nav-menu{ display:flex; align-items:center; list-style:none; gap:50px; color:#626262; font-size:20px; font-weight:500 }
+.nav-login-cart{ display:flex; align-items:center; gap:45px }
+
+@media(max-width:800px){
+  .loginsignup-container{ width:92%; padding:20px }
+  .loginsignup-fields input{ height:48px }
+  .loginsignup-container button{ height:48px }
+}

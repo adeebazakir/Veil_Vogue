@@ -1,0 +1,103 @@
+.customization-display {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 2px solid #f59e0b;
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+}
+
+.customization-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: #78350f;
+}
+
+.custom-icon {
+    font-size: 1.25rem;
+}
+
+.custom-title {
+    font-size: 0.875rem;
+    flex: 1;
+}
+
+.customization-cost-badge {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    padding: 0.25rem 0.625rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.customization-cost-note {
+    margin-top: 0.75rem;
+    padding: 0.5rem;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #10b981;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: #065f46;
+    font-weight: 600;
+}
+
+.cost-icon {
+    font-size: 1rem;
+}
+
+.measurements-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+.measurement-item {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #fbbf24;
+}
+
+.measurement-label {
+    font-size: 0.75rem;
+    color: #92400e;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.measurement-value {
+    font-size: 0.875rem;
+    color: #1f2937;
+    font-weight: 700;
+}
+
+.customization-text {
+    background: white;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid #fbbf24;
+    color: #1f2937;
+    white-space: pre-wrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .measurements-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .customization-display {
+        font-size: 0.8125rem;
+    }
+}
+
