@@ -83,7 +83,7 @@ const ProfileScreen = () => {
             };
 
             const { data } = await axios.put(
-                '${API_BASE_URL}/api/users/profile',
+                `${API_BASE_URL}/api/users/profile`,
                 { name, email, address, contact },
                 config
             );
@@ -136,7 +136,7 @@ const ProfileScreen = () => {
             };
 
             const { data } = await axios.put(
-                '${API_BASE_URL}/api/users/password',
+                `${API_BASE_URL}/api/users/password`,
                 { currentPassword, newPassword },
                 config
             );
@@ -163,7 +163,7 @@ const ProfileScreen = () => {
             const config = {
                 headers: { Authorization: `Bearer ${userInfo.token}` }
             };
-            const { data } = await axios.get('${API_BASE_URL}/api/products/seller/all', config);
+            const { data } = await axios.get(`${API_BASE_URL}/api/products/seller/all`, config);
             setSellerProducts(data);
         } catch (err) {
             console.error('Error fetching products:', err);
@@ -181,7 +181,7 @@ const ProfileScreen = () => {
             const config = {
                 headers: { Authorization: `Bearer ${userInfo.token}` }
             };
-            const { data } = await axios.get('${API_BASE_URL}/api/orders/seller/myorders', config);
+            const { data } = await axios.get(`${API_BASE_URL}/api/orders/seller/myorders`, config);
             setSellerOrders(data);
         } catch (err) {
             console.error('Error fetching orders:', err);
@@ -199,7 +199,7 @@ const ProfileScreen = () => {
             const config = {
                 headers: { Authorization: `Bearer ${userInfo.token}` }
             };
-            const { data } = await axios.get('${API_BASE_URL}/api/orders/myorders', config);
+            const { data } = await axios.get(`${API_BASE_URL}/api/orders/myorders`, config);
             setCustomerOrders(data);
         } catch (err) {
             console.error('Error fetching customer orders:', err);

@@ -52,7 +52,7 @@ const SellerDashboardNew = () => {
             const config = {
                 headers: { Authorization: `Bearer ${userInfo.token}` }
             };
-            const { data } = await axios.get('${API_BASE_URL}/api/products/seller/verified', config);
+            const { data } = await axios.get(`${API_BASE_URL}/api/products/seller/verified`, config);
             setProducts(data);
             setLoading(false);
         } catch (err) {
@@ -68,7 +68,7 @@ const SellerDashboardNew = () => {
             const config = {
                 headers: { Authorization: `Bearer ${userInfo.token}` }
             };
-            const { data } = await axios.get('${API_BASE_URL}/api/orders/seller/myorders', config);
+            const { data } = await axios.get(`${API_BASE_URL}/api/orders/seller/myorders`, config);
             setOrders(data);
             setLoading(false);
         } catch (err) {
@@ -106,7 +106,7 @@ const SellerDashboardNew = () => {
                     Authorization: `Bearer ${userInfo.token}`,
                 },
             };
-            const { data } = await axios.post('${API_BASE_URL}/api/upload', formData, config);
+            const { data } = await axios.post(`${API_BASE_URL}/api/upload`, formData, config);
             setUploadingImage(false);
             return { url: data.url, public_id: data.public_id };
         } catch (err) {
@@ -148,7 +148,7 @@ const SellerDashboardNew = () => {
                 },
             };
 
-            await axios.post('${API_BASE_URL}/api/products', productData, config);
+            await axios.post(`${API_BASE_URL}/api/products`, productData, config);
             setSuccess('Product uploaded successfully! Awaiting admin verification.');
 
             // Reset form
