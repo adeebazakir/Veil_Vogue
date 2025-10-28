@@ -58,11 +58,31 @@ const RandomProductsGrid = () => {
             console.log('🔍 Fetching products from:', `${API_ENDPOINTS.GET_PRODUCTS}?isVerified=true`);
             
             // Fetch all verified products
-            const { data } = await axios.get(`${API_ENDPOINTS.GET_PRODUCTS}?isVerified=true`);
-            console.log('✅ Products fetched:', data.length, 'products');
+            const response = await axios.get(`${API_ENDPOINTS.GET_PRODUCTS}?isVerified=true`);
+            console.log('📡 Full response:', response);
+            console.log('📦 Response data:', response.data);
+            console.log('📊 Data type:', typeof response.data);
+            console.log('📋 Is array?', Array.isArray(response.data));
+            
+            // Handle response data - ensure it's an array
+            let productsData = response.data;
+            
+            // If response is wrapped in an object (e.g., {products: [...]})
+            if (!Array.isArray(productsData)) {
+                if (productsData && productsData.products && Array.isArray(productsData.products)) {
+                    productsData = productsData.products;
+                } else {
+                    console.error('❌ Unexpected response format:', productsData);
+                    setError('No products available');
+                    setLoading(false);
+                    return;
+                }
+            }
+            
+            console.log('✅ Products fetched:', productsData.length, 'products');
             
             // Shuffle products randomly and take first 16
-            const shuffled = [...data].sort(() => Math.random() - 0.5);
+            const shuffled = [...productsData].sort(() => Math.random() - 0.5);
             const randomProducts = shuffled.slice(0, 16);
             
             console.log('🎲 Random selection:', randomProducts.length, 'products for display');
@@ -73,6 +93,7 @@ const RandomProductsGrid = () => {
             setLoading(false);
         } catch (err) {
             console.error('❌ Error fetching products:', err);
+            console.error('❌ Error response:', err.response);
             setError('Failed to load products');
             setLoading(false);
         }
