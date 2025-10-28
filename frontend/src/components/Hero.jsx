@@ -17,6 +17,14 @@ const Hero = () => {
             try {
                 const { data } = await axios.get(`${API_BASE_URL}/api/products`);
                 
+                // Ensure data is an array
+                if (!Array.isArray(data)) {
+                    console.error('Hero: Expected array but got:', typeof data);
+                    setProductImages([]);
+                    setLoading(false);
+                    return;
+                }
+                
                 // Get products with valid images
                 const productsWithImages = data.filter(
                     product => product.images && product.images.length > 0 && product.images[0].url
