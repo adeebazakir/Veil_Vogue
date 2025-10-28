@@ -44,10 +44,10 @@ const AdminDashboard = () => {
             
             // Fetch products, customers, sellers, and stats in parallel
             const [productsRes, customersRes, sellersRes, statsRes] = await Promise.all([
-                axios.get('${API_BASE_URL}/api/products/admin/all-products', config),
-                axios.get('${API_BASE_URL}/api/users/admin/customers', config),
-                axios.get('${API_BASE_URL}/api/users/admin/sellers', config),
-                axios.get('${API_BASE_URL}/api/users/admin/stats', config)
+                axios.get(`${API_BASE_URL}/api/products/admin/all-products`, config),
+                axios.get(`${API_BASE_URL}/api/users/admin/customers`, config),
+                axios.get(`${API_BASE_URL}/api/users/admin/sellers`, config),
+                axios.get(`${API_BASE_URL}/api/users/admin/stats`, config)
             ]);
             
             // Handle products data
@@ -87,7 +87,7 @@ const AdminDashboard = () => {
                 headers: { Authorization: `Bearer ${userInfo.token}` } 
             };
             
-            const { data } = await axios.get('${API_BASE_URL}/api/products/admin/all-products', config);
+            const { data } = await axios.get(`${API_BASE_URL}/api/products/admin/all-products`, config);
             setProducts(data.products || data);
         } catch (err) {
             console.error('Error fetching products:', err);
