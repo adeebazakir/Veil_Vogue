@@ -43,7 +43,7 @@ const SellerDashboard = () => {
                     Authorization: `Bearer ${userInfo.token}`,
                 },
             };
-            const { data } = await axios.get('${API_BASE_URL}/api/products/seller', config);
+            const { data } = await axios.get(`${API_BASE_URL}/api/products/seller', config);
             setProducts(data);
             setLoading(false);
         } catch (err) {
