@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import CloudinaryImage from './ui/CloudinaryImage';
+import { API_BASE_URL } from '../config/api';
 
 const ProductEditModal = ({ product, onClose, onSuccess }) => {
     const [formData, setFormData] = useState({
@@ -59,7 +60,7 @@ const ProductEditModal = ({ product, onClose, onSuccess }) => {
                 },
             };
 
-            await axios.put(`http://localhost:5000/api/products/${product._id}`, form, config);
+            await axios.put(`${API_BASE_URL}/api/products/${product._id}`, form, config);
             onSuccess();
         } catch (err) {
             setError(err.response?.data?.message || 'Failed to update product');

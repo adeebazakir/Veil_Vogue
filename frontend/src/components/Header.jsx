@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Navbar.css';
+import { API_BASE_URL } from '../config/api';
 
 // Font Awesome for cart icon and profile icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,7 +21,7 @@ const Navbar = () =>{
         
         try {
             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-            const { data } = await axios.get('http://localhost:5000/api/cart', config);
+            const { data } = await axios.get(`${API_BASE_URL}/api/cart`, config);
             // Calculate total quantity from all cart items
             const totalCount = data.cartItems.reduce((acc, item) => acc + item.quantity, 0);
             setCartCount(totalCount);

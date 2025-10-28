@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import CustomizationForm from './components/CustomizationForm';
 import './ProductDetailScreen.css';
+import { API_BASE_URL } from './config/api';
 
 const ProductDetailScreen = () => {
     const { id: productId } = useParams();
@@ -31,11 +32,11 @@ const ProductDetailScreen = () => {
     const fetchProductData = async () => {
         try {
             // Fetch product details
-            const productRes = await axios.get(`http://localhost:5000/api/products/${productId}`);
+            const productRes = await axios.get(`${API_BASE_URL}/api/products/${productId}`);
             setProduct(productRes.data);
 
             // Fetch product reviews
-            const reviewsRes = await axios.get(`http://localhost:5000/api/products/${productId}/reviews`);
+            const reviewsRes = await axios.get(`${API_BASE_URL}/api/products/${productId}/reviews`);
             setReviews(reviewsRes.data);
             
             setLoading(false);
@@ -71,7 +72,7 @@ const ProductDetailScreen = () => {
             
             // POST request to createProductReview controller
             await axios.post(
-                `http://localhost:5000/api/products/${productId}/reviews`, 
+                `${API_BASE_URL}/api/products/${productId}/reviews`, 
                 { rating, title, comment }, 
                 config
             );
@@ -145,7 +146,7 @@ const ProductDetailScreen = () => {
                 },
             };
             await axios.post(
-                'http://localhost:5000/api/cart/add', 
+                `${API_BASE_URL}/api/cart/add`, 
                 { productId, quantity: 1, customization_details: customizationDetails }, 
                 config
             );

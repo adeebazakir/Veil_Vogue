@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import './Css/Auth.css';
+import { API_BASE_URL } from './config/api';
 
 const RegisterScreen = () => {
     const [name, setName] = useState('');
@@ -19,7 +20,7 @@ const RegisterScreen = () => {
 
         try {
             const config = { headers: { 'Content-Type': 'application/json' } };
-            const { data } = await axios.post('http://localhost:5000/api/users/register', { name, email, password, role }, config);
+            const { data } = await axios.post(`${API_BASE_URL}/api/users/register`, { name, email, password, role }, config);
             localStorage.setItem('userInfo', JSON.stringify(data));
             navigate('/');
             window.location.reload();

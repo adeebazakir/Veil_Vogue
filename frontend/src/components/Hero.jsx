@@ -6,6 +6,7 @@ import axios from 'axios';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './Hero.css';
+import { API_BASE_URL } from '../config/api';
 
 const Hero = () => {
     const [productImages, setProductImages] = useState([]);
@@ -14,7 +15,7 @@ const Hero = () => {
     useEffect(() => {
         const fetchRandomProducts = async () => {
             try {
-                const { data } = await axios.get('http://localhost:5000/api/products');
+                const { data } = await axios.get(`${API_BASE_URL}/api/products`);
                 
                 // Get products with valid images
                 const productsWithImages = data.filter(

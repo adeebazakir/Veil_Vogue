@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { PLACEHOLDER_IMAGE } from './config/api';
+import { PLACEHOLDER_IMAGE, API_BASE_URL } from './config/api';
 import CustomizationDisplay from './components/CustomizationDisplay';
 
 const SellerDashboardNew = () => {
@@ -52,7 +52,7 @@ const SellerDashboardNew = () => {
             const config = {
                 headers: { Authorization: `Bearer ${userInfo.token}` }
             };
-            const { data } = await axios.get('http://localhost:5000/api/products/seller/verified', config);
+            const { data } = await axios.get('${API_BASE_URL}/api/products/seller/verified', config);
             setProducts(data);
             setLoading(false);
         } catch (err) {
@@ -68,7 +68,7 @@ const SellerDashboardNew = () => {
             const config = {
                 headers: { Authorization: `Bearer ${userInfo.token}` }
             };
-            const { data } = await axios.get('http://localhost:5000/api/orders/seller/myorders', config);
+            const { data } = await axios.get('${API_BASE_URL}/api/orders/seller/myorders', config);
             setOrders(data);
             setLoading(false);
         } catch (err) {
@@ -106,7 +106,7 @@ const SellerDashboardNew = () => {
                     Authorization: `Bearer ${userInfo.token}`,
                 },
             };
-            const { data } = await axios.post('http://localhost:5000/api/upload', formData, config);
+            const { data } = await axios.post('${API_BASE_URL}/api/upload', formData, config);
             setUploadingImage(false);
             return { url: data.url, public_id: data.public_id };
         } catch (err) {
@@ -148,7 +148,7 @@ const SellerDashboardNew = () => {
                 },
             };
 
-            await axios.post('http://localhost:5000/api/products', productData, config);
+            await axios.post('${API_BASE_URL}/api/products', productData, config);
             setSuccess('Product uploaded successfully! Awaiting admin verification.');
 
             // Reset form

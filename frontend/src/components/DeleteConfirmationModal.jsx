@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import CloudinaryImage from './ui/CloudinaryImage';
+import { API_BASE_URL } from '../config/api';
 
 const DeleteConfirmationModal = ({ product, onClose, onSuccess }) => {
     const [loading, setLoading] = useState(false);
@@ -18,7 +19,7 @@ const DeleteConfirmationModal = ({ product, onClose, onSuccess }) => {
                 },
             };
 
-            await axios.delete(`http://localhost:5000/api/products/${product._id}`, config);
+            await axios.delete(`${API_BASE_URL}/api/products/${product._id}`, config);
             onSuccess();
         } catch (err) {
             setError(err.response?.data?.message || 'Failed to delete product');

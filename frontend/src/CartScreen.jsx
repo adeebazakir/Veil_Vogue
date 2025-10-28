@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import CustomizationDisplay from './components/CustomizationDisplay';
 import './CartScreen.css';
+import { API_BASE_URL } from './config/api';
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
@@ -16,7 +17,7 @@ const CartScreen = () => {
     const navigate = useNavigate();
     const userInfo = JSON.parse(localStorage.getItem('userInfo'));
 
-    const API_URL = 'http://localhost:5000/api/cart';
+    const API_URL = `${API_BASE_URL}/api/cart`;
 
     const fetchCart = async () => {
         if (!userInfo) return navigate('/login');

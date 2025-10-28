@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProductCard from './ui/ProductCard';
-import { API_ENDPOINTS } from '../config/api';
+import { API_ENDPOINTS, API_BASE_URL } from '../config/api';
 import './RandomProductsGrid.css';
 
 const RandomProductsGrid = () => {
@@ -30,7 +30,7 @@ const RandomProductsGrid = () => {
             };
 
             const { data } = await axios.post(
-                'http://localhost:5000/api/cart/add',
+                `${API_BASE_URL}/api/cart/add`,
                 { productId, quantity },
                 config
             );

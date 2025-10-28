@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { PLACEHOLDER_IMAGE } from './config/api';
+import { PLACEHOLDER_IMAGE, API_BASE_URL } from './config/api';
 import './AdminDashboard.css';
 
 const AdminDashboard = () => {
@@ -44,10 +44,10 @@ const AdminDashboard = () => {
             
             // Fetch products, customers, sellers, and stats in parallel
             const [productsRes, customersRes, sellersRes, statsRes] = await Promise.all([
-                axios.get('http://localhost:5000/api/products/admin/all-products', config),
-                axios.get('http://localhost:5000/api/users/admin/customers', config),
-                axios.get('http://localhost:5000/api/users/admin/sellers', config),
-                axios.get('http://localhost:5000/api/users/admin/stats', config)
+                axios.get('${API_BASE_URL}/api/products/admin/all-products', config),
+                axios.get('${API_BASE_URL}/api/users/admin/customers', config),
+                axios.get('${API_BASE_URL}/api/users/admin/sellers', config),
+                axios.get('${API_BASE_URL}/api/users/admin/stats', config)
             ]);
             
             // Handle products data
@@ -87,7 +87,7 @@ const AdminDashboard = () => {
                 headers: { Authorization: `Bearer ${userInfo.token}` } 
             };
             
-            const { data } = await axios.get('http://localhost:5000/api/products/admin/all-products', config);
+            const { data } = await axios.get('${API_BASE_URL}/api/products/admin/all-products', config);
             setProducts(data.products || data);
         } catch (err) {
             console.error('Error fetching products:', err);
@@ -105,7 +105,7 @@ const AdminDashboard = () => {
             };
             
             await axios.put(
-                `http://localhost:5000/api/products/admin/verify/${productId}`, 
+                `${API_BASE_URL}/api/products/admin/verify/${productId}`, 
                 { isVerified: !currentStatus },
                 config
             );
@@ -129,7 +129,7 @@ const AdminDashboard = () => {
                 headers: { Authorization: `Bearer ${userInfo.token}` } 
             };
             
-            await axios.delete(`http://localhost:5000/api/products/${productId}`, config);
+            await axios.delete(`${API_BASE_URL}/api/products/${productId}`, config);
             setSuccess('Product deleted successfully');
             fetchProducts();
             
@@ -149,7 +149,7 @@ const AdminDashboard = () => {
                 headers: { Authorization: `Bearer ${userInfo.token}` } 
             };
             
-            await axios.delete(`http://localhost:5000/api/users/admin/${userId}`, config);
+            await axios.delete(`${API_BASE_URL}/api/users/admin/${userId}`, config);
             setSuccess('User deleted successfully');
             
             // Refresh data

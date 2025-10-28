@@ -4,6 +4,7 @@ import axios from 'axios';
 import ProductEditModal from './ProductEditModal';
 import DeleteConfirmationModal from './DeleteConfirmationModal';
 import CloudinaryImage from './ui/CloudinaryImage';
+import { API_BASE_URL } from '../config/api';
 
 const SellerDashboard = () => {
     const navigate = useNavigate();
@@ -42,7 +43,7 @@ const SellerDashboard = () => {
                     Authorization: `Bearer ${userInfo.token}`,
                 },
             };
-            const { data } = await axios.get('http://localhost:5000/api/products/seller', config);
+            const { data } = await axios.get('${API_BASE_URL}/api/products/seller', config);
             setProducts(data);
             setLoading(false);
         } catch (err) {

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import ProductCard from '../components/ui/ProductCard';
 import './CategoryPage.css';
+import { API_BASE_URL } from '../config/api';
 
 const CategoryPage = () => {
     const { category } = useParams();
@@ -42,7 +43,7 @@ const CategoryPage = () => {
             try {
                 setLoading(true);
                 const categoryParam = category ? `category=${getCategoryMapping(category)}` : '';
-                const { data } = await axios.get(`http://localhost:5000/api/products?${categoryParam}${categoryParam ? '&' : ''}isVerified=true`);
+                const { data } = await axios.get(`${API_BASE_URL}/api/products?${categoryParam}${categoryParam ? '&' : ''}isVerified=true`);
                 setProducts(data);
                 
                 // Update price range based on actual product prices
@@ -75,7 +76,7 @@ const CategoryPage = () => {
 
         try {
             await axios.post(
-                'http://localhost:5000/api/cart/add',
+                `${API_BASE_URL}/api/cart/add`,
                 { productId, quantity },
                 {
                     headers: {

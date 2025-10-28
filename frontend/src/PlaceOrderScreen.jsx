@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+import { API_BASE_URL } from './config/api';
 
 const PlaceOrderScreen = () => {
     const navigate = useNavigate();
@@ -32,7 +33,7 @@ const PlaceOrderScreen = () => {
 
         try {
             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-            const { data } = await axios.get('http://localhost:5000/api/cart', config);
+            const { data } = await axios.get(`${API_BASE_URL}/api/cart`, config);
             
             const itemsPrice = data.totalAmount;
             const taxPrice = 0; // No tax
@@ -73,7 +74,7 @@ const PlaceOrderScreen = () => {
             };
 
             // Call the addOrderItems API (FR-6: Creates order, updates stock, clears cart)
-            const { data } = await axios.post('http://localhost:5000/api/orders', orderData, config);
+            const { data } = await axios.post(`${API_BASE_URL}/api/orders`, orderData, config);
             
             // Clear temporary storage
             localStorage.removeItem('shippingAddress');
