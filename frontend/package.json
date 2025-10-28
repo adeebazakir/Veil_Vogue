@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
   "scripts": {
-    "dev": "node node_modules/vite/bin/vite.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "init-tailwind": "npx --no-install tailwindcss init -p"
+    "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview",
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "init-tailwind": "npx --no-install tailwindcss init -p"
   },
   "author": "adeeba",
   "license": "ISC",
