@@ -18,6 +18,7 @@ import SellerDashboardNew from './SellerDashboardNew';
 import AdminDashboard from './AdminDashboard';
 import ProductDetailScreen from './ProductDetailScreen';
 import ProfileScreen from './ProfileScreen';
+import TestAPIPage from './pages/TestAPIPage';
 
 const HomeScreen = () => (
   <ErrorBoundary>
@@ -53,6 +54,9 @@ function App() {
               <Route path="/seller/products" element={<SellerProductScreen />} />
               <Route path="/seller/dashboard" element={<SellerDashboardNew />} />
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
+
+              {/* Test API Route */}
+              <Route path="/test-api" element={<TestAPIPage />} />
 
               {/* Category Routes */}
               <Route path="/:category" element={<CategoryPage />} />
